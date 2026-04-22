@@ -288,7 +288,11 @@ const visibleItems = computed(() => {
                                         class="cursor-pointer"
                                     >
                                         <input
+<<<<<<< feature-timeDate
                                             v-if="isAvaible === true"
+=======
+                                        v-if="isAvaible === true"
+>>>>>>> develop
                                             type="radio"
                                             max="1"
                                             name="test_id"
