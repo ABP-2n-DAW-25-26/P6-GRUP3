@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import type * as InertiaVue3 from '@inertiajs/vue3';
 import { mount } from '@vue/test-utils';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { defineComponent, nextTick } from 'vue';
@@ -73,14 +74,14 @@ const FullCalendarStub = defineComponent({
 });
 
 vi.mock('@inertiajs/vue3', async () => {
-    const actual = await vi.importActual<typeof import('@inertiajs/vue3')>(
+    const actual = await vi.importActual<typeof InertiaVue3>(
         '@inertiajs/vue3',
     );
 
     return {
         ...actual,
         Head: defineComponent({
-            name: 'Head',
+            name: 'InertiaHead',
             props: {
                 title: {
                     type: String,

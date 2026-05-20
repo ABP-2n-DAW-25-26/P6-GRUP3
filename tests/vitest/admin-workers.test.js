@@ -30,7 +30,7 @@ const mountAdminWorkers = (workers) =>
         },
     });
 
-describe('Admin workers page', () => {
+describe('Admin wqorkers page', () => {
     it('opens the edit modal with worker data', async () => {
         // Minimal worker object required for the edit modal fields we assert
         const worker = {
