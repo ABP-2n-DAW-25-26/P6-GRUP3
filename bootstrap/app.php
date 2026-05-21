@@ -2,6 +2,11 @@
 
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
+use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\isDoctor;
+use App\Http\Middleware\isPatient;
+use App\Http\Middleware\isSecretary;
+use App\Http\Middleware\isWorker;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,6 +20,14 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->encryptCookies(except: ['appearance', 'sidebar_state']);
+
+        $middleware->alias([
+            'Admin' => isAdmin::class,
+            'Doctor' => isDoctor::class,
+            'Secretary' => isSecretary::class,
+            'Worker' => isWorker::class,
+            'Patient' => isPatient::class,
+        ]);
 
         $middleware->web(append: [
             HandleAppearance::class,

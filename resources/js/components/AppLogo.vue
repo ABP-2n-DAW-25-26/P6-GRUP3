@@ -4,13 +4,28 @@ import AppLogoIcon from '@/components/AppLogoIcon.vue';
 
 <template>
     <div
-        class="flex aspect-square size-8 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground"
+        class="flex w-full min-w-0 items-center justify-start gap-3 bg-[#DCE7ED] group-has-data-[collapsible=icon]/sidebar-wrapper:justify-center group-has-data-[collapsible=icon]/sidebar-wrapper:gap-0"
     >
-        <AppLogoIcon class="size-5 fill-current text-white dark:text-black" />
-    </div>
-    <div class="ml-1 grid flex-1 text-left text-sm">
-        <span class="mb-0.5 truncate leading-tight font-semibold"
-            >Laravel Starter Kit</span
+        <div class="flex shrink-0 items-center justify-center">
+            <AppLogoIcon
+                class="h-12 w-12 text-white transition-[height,width] duration-200 group-has-data-[collapsible=icon]/sidebar-wrapper:h-10 group-has-data-[collapsible=icon]/sidebar-wrapper:w-10 sm:h-14 sm:w-14 lg:h-20 lg:w-20"
+            />
+        </div>
+        <div
+            class="grid min-w-0 flex-1 text-left transition-opacity duration-200 group-has-data-[collapsible=icon]/sidebar-wrapper:invisible group-has-data-[collapsible=icon]/sidebar-wrapper:opacity-0"
         >
+            <span
+                class="truncate text-base leading-tight font-bold sm:text-lg lg:text-2xl"
+                style="color: var(--pmf-primary)"
+            >
+                PMF
+            </span>
+            <span
+                class="truncate text-[10px] leading-tight font-medium sm:text-xs"
+                style="color: var(--pmf-grey-light)"
+            >
+                Programa Millora flux
+            </span>
+        </div>
     </div>
 </template>

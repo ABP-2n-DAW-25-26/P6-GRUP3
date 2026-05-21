@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
+
+class isDoctor
+{
+    /**
+     * Handle an incoming request.
+     * Los doctores tienen el role 'doctor'. También admin puede acceder.
+     *
+     * @param  Closure(Request): (Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        if (Auth::check() && (Auth::user()->role === 'doctor' || Auth::user()->role === 'admin')) {
+            return $next($request);
+        }
+
+        return redirect()->route('loginWorker');
+    }
+}

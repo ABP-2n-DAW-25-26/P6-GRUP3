@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'guard' => 'web',
+    'guard' => 'admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -74,6 +74,16 @@ return [
     */
 
     'home' => '/dashboard',
+
+    /*
+    |
+    | Custom redirects
+    |
+    | Define custom completion redirects for Fortify features.
+    */
+    'redirects' => [
+        'password-reset' => '/loginWorker',
+    ],
 
     /*
     |--------------------------------------------------------------------------
